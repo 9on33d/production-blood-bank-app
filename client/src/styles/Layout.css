@@ -1,0 +1,676 @@
+.sidebar{
+    height: 100vh; 
+    /* border-radius: 5px; */
+    background-color: #2e3200;
+    box-shadow: 0 0 2px gray;
+    color: white;
+}
+.menu{
+    padding-top: 100px;
+}
+
+.menu-item{
+    padding-top: 30px;
+}
+
+.menu-item a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.menu-item i{
+    font-size: 1.2rem;
+    margin: 0 15px;
+    color: white;
+}
+
+.active{
+    background-color: white;
+    padding: 10px;
+    margin-top: 25px;
+}
+.active a,
+.active i{
+    color: #2e3200;
+}
+
+/* Row container for the image and form */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  /* The space between form and banner */
+.row::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 0, 150, 0.5), rgba(0, 204, 255, 0.5));
+    transition: all 0.6s ease;
+    z-index: 0;
+  }
+
+  
+  
+  .form-banner,
+  .form-container {
+    transition: transform 0.6s ease-in-out;
+    will-change: transform; /* Optimizes performance for animation */
+  }
+  
+  .form-banner {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .form-banner img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .form-banner:hover img {
+    transform: scale(1);
+  }
+  
+  /* Sliding effect on hover */
+  .row:hover .form-banner {
+    transform: translateX(-10%);
+  }
+  
+  .row:hover .form-container {
+    transform: translateX(10%);
+  }
+  
+  /* Position the form container */
+.form-container {
+    position: relative; /* Make this the reference point for absolute positioning */
+    padding: 20px;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid #ddd;
+    transition: transform 0.6s ease-in-out, box-shadow 0.4s ease;
+    z-index: 1;
+  }
+  
+  /* Light effect styles */
+  .light-effect {
+    border-radius: inherit !important;
+    content: '';
+    position: absolute;
+    top: 10%; /* Position it outside the form */
+    left: 5%; /* Position it outside the form */
+    width: 80%; /* Make it larger than the form */
+    height: 80%; /* Make it larger than the form */
+    border-radius: 50%; /* Make it circular */
+    box-shadow: 0 0 20px rgba(0, 255, 0, 1), 
+                0 0 40px rgba(0, 255, 0, 0.8),
+                0 0 60px rgba(0, 255, 0, 0.6),
+                0 0 80px rgba(0, 255, 0, 0.4);
+    animation: rotate 4s linear infinite; /* Rotate animation */
+    pointer-events: none; /* Prevent interaction with the light effect */
+  }
+  
+  /* Rotate animation */
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Additional hover effect for the form container */
+  .form-container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  /* Form Title */
+  .form-container h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInDown 0.8s forwards;
+  }
+  
+  /* Button Hover Effect */
+  .form-container button {
+    background-color: #ff007a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .form-container button:hover {
+    background-color: #ff5f9e;
+    transform: scale(1.05);
+  }
+  
+  /* Fade-in effect for the form title */
+  @keyframes fadeInDown {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hide default radio button */
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ff007a;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover effect for the radio button */
+  input[type="radio"]:hover {
+    border-color: #ff5f9e;
+    box-shadow: 0 0 0 4px rgba(255, 0, 122, 0.2);
+  }
+  
+  /* Checked radio button */
+  input[type="radio"]:checked {
+    background-color: #ff007a;
+    border-color: #ff007a;
+  }
+  
+  input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+  }
+  
+  /* Radio Button Label Styling */
+  label {
+    font-size: 16px;
+    color: #333;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  /* Hover effect on label */
+  label:hover {
+    color: #ff007a;
+    transition: color 0.3s ease;
+  }
+  
+
+/* image */
+/* Container for the form and image upload section */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+}
+.upload-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Upload box hover effect */
+.uploadBox {
+  width: 200px;
+  height: 200px;
+  background-color: #eceef2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 60px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.uploadBox:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Uploaded image styling */
+.uploadBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Hide file input */
+input[type="file"] {
+  display: none;
+}
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Button styling */
+.btn button {
+  width: 120px;
+  height: 40px;
+  background-color: #fdbf1c;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.btn button:hover {
+  background-color: #ff5f9e;
+  transform: scale(1.1);
+}
+
+/* Display all uploaded images */
+.allImage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 30px;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.allImage img {
+  border-radius: 10px;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect for individual images */
+.allImage img:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.profile-picture{
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.profile-picture img{
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  
+}
+
+/* user table */
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1rem;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.user-table th,
+.user-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.user-table thead {
+  background-color: #4CAF50; /* Darker background for the header */
+  color: white;
+}
+
+.user-table tbody tr {
+  background-color: #f9f9f9; /* Light background for table rows */
+}
+
+.user-table tbody tr:nth-child(even) {
+  background-color: #f1f1f1; /* Alternate row colors for clarity */
+}
+
+.user-table tbody tr:hover {
+  background-color: #d1e7dd; /* Hover effect for table rows */
+}
+
+.user-table th {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.user-table td {
+  font-weight: 400;
+}
+
+.user-table td, 
+.user-table th {
+  border-bottom: 1px solid #ddd;
+}
+
+.user-table tbody td {
+  color: #555; /* Slightly dimmed text for content */
+}
+
+/* certificate */
+
+.certificate-container {
+  margin-top: 20px;
+  width: 100%;
+  height: 50%;
+  background-color: #fff;
+  border: 10px solid #008080; /* Teal Border */
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.certificate-header {
+  font-size: 40px;
+  font-weight: bold;
+  color: #008080;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.award-title {
+  font-size: 34px;
+  font-weight: bold;
+  color: #000;
+  margin: 20px 0;
+}
+
+.recipient-name {
+  font-size: 36px;
+  font-weight: bold;
+  color: #d4af37; /* Gold color */
+  margin: 20px 0;
+}
+
+.certificate-body {
+  font-size: 18px;
+  color: #333;
+  margin: 20px 0;
+}
+
+.date-signature {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.date {
+  font-size: 18px;
+  text-align: left;
+  margin-left: 30px;
+  margin-top: 70px;
+}
+
+.signature {
+  font-size: 18px;
+  text-align: right;
+  margin-right: 30px;
+}
+
+.certificate-border {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 5px solid #d4af37; /* Inner Gold Border */
+}
+
+/* responsive */
+
+@media screen and (max-width: 768px) {
+  .row:hover .form-container{
+    transform: none;
+  }
+  .form-container {
+    width: 100%;
+    padding: 20px;
+    border-radius: 0;
+  }
+  .form-container:hover {
+    transform: none;
+  }
+  .form-container h3 {
+    font-size: 1.5rem;
+  }
+  .form-banner img{
+    display: contents;
+  }
+  .light-effect {
+    display: none;
+  }
+  .form-check-label {
+    font-size: 0.8rem;
+  }
+  .form-check-input {
+    width: 15px;
+    height: 15px;
+  }
+  .form-container button {
+    padding: 5px 20px;
+    font-size: 1rem;
+  }
+  .container,
+  .container-fluid {
+    padding: 0;
+  }
+  .sidebar {
+    width: 100%;
+    height: 245px;
+    position: relative;
+    border-radius: 0;
+    background-color: #d4fdd6;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  .menu {
+    padding: 10px;
+  }
+  .menu-item {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 10px;
+    width: 100%;
+    height: 100%;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu-item a {
+    color: #000;
+    text-decoration: none;
+  }
+  .menu-item i {
+    display: none;
+  }
+  .active {
+    background-color: white;
+  }
+  table{
+    font-size: 0.7rem;
+  }
+  table th {
+    font-size: 0.7rem;
+  }
+  table td {
+    font-size: 0.7rem;
+  }
+  
+  .certificate-container {
+    height: 95%;
+    width: 95%;
+    padding: 10px;
+    border-radius: 0;
+    margin: 10px;
+  }
+  .certificate-header {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .award-title {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  .recipient-name {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  .certificate-body {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  .date-signature {
+    margin-top: 10px;
+  }
+  .date {
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+  .signature {
+    font-size: 1rem;
+    margin-top: -0px;
+  }
+  .signature img{
+    width: 50px;
+    height: 50px;
+  }
+  .profile-picture{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+  }
+  .profile-picture img{
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  }
+  .upload-container{
+    padding: 0;
+    margin: 0;
+  }
+  .uploadBox {
+    width: 100%;
+    height: 100%;
+    background-color: #eceef2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .media{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .user-table{
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .user-table th {
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .user-table td {
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+  }
+  table{
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+  }
+  table tr{
+    font-size: 0.7rem;
+    margin: 5px;
+    flex-direction: row;
+    display: flex;
+  } 
+  table th {
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: row;
+  }
+  table td {
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+  
+}
